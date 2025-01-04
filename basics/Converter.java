@@ -7,16 +7,22 @@ public class Converter {
     private static final String CTOF = "CtoF(from Celsius to Fahrenheit)";
 
     public static void main(String[] args) {
-        getConversionOptions();
+        boolean conversionFlag = true;
 
         Scanner scanner = new Scanner(System.in);
 
-        int option = getOption(scanner);
+        while (conversionFlag) {
+            getConversionOptions();
 
-        double value = getValue(scanner);
+            int option = getOption(scanner);
+            double value = getValue(scanner);
 
-        performConversion(option, value);
+            performConversion(option, value);
 
+            System.out.print("Do you want to perform another conversion? (yes/no): ");
+            conversionFlag = scanner.next().equalsIgnoreCase("yes");
+        }
+        System.out.println("Thanks for using converter!");
         scanner.close();
     }
 
@@ -27,12 +33,28 @@ public class Converter {
     }
 
     private static int getOption(Scanner scanner) {
-        System.out.print("Enter your choice (1 or 2): ");
-        return scanner.nextInt();
+        int option = -1;
+        while (option != 1 && option != 2) {
+            System.out.print("Enter your choice (1 or 2): ");
+            if (scanner.hasNextInt()) {
+                option = scanner.nextInt();
+                if (option != 1 && option != 2) {
+                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next();
+            }
+        }
+        return option;
     }
 
     private static double getValue(Scanner scanner) {
         System.out.print("Enter the value to convert: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Invalid input. Please enter a numeric value.");
+            scanner.next();
+        }
         return scanner.nextDouble();
     }
 
