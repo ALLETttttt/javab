@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Converter {
     private static final String FTOC = "FtoC(from Fahrenheit to Celsius)";
     private static final String CTOF = "CtoF(from Celsius to Fahrenheit)";
+    private static final double FAHRENHEIT_TO_CELSIUS_RATIO = 5.0 / 9;
+    private static final double CELSIUS_TO_FAHRENHEIT_RATIO = 9.0 / 5;
 
     public static void main(String[] args) {
         boolean conversionFlag = true;
@@ -68,13 +70,13 @@ public class Converter {
 
     private static void convertFahrenheitToCelsius(double fahrenheit) {
         System.out.printf("You have chosen '%s'%n", FTOC);
-        double celsius = (5.0 / 9) * (fahrenheit - 32);
+        double celsius = FAHRENHEIT_TO_CELSIUS_RATIO * (fahrenheit - 32);
         System.out.printf("Converted value: %.2f°C%n", celsius);
     }
 
     private static void convertCelsiusToFahrenheit(double celsius) {
         System.out.printf("You have chosen '%s'%n", CTOF);
-        double fahrenheit = (celsius * (9.0 / 5)) + 32;
+        double fahrenheit = (celsius * CELSIUS_TO_FAHRENHEIT_RATIO) + 32;
         System.out.printf("Converted value: %.2f°F%n", fahrenheit);
     }
 }
