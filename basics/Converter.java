@@ -11,7 +11,6 @@ public class Converter {
     public static void main(String[] args) {
         boolean conversionFlag = true;
 
-
         Scanner scanner = new Scanner(System.in);
 
         while (conversionFlag) {
