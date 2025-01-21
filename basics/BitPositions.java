@@ -1,7 +1,5 @@
 package basics;
 
-import java.util.Scanner;
-
 public class BitPositions {
     public static void main(String[] args) {
         // Test the function with the example input
