@@ -10,7 +10,19 @@ public class SetIntersection {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Set1: ");
-        String[] elements = scanner.nextLine().split(" ");
-        Set<String> set = new HashSet<>(Arrays.asList(elements));
+        String[] firstSetElements = scanner.nextLine().split(" ");
+        Set<String> firstSet = new HashSet<>(Arrays.asList(firstSetElements));
+
+        System.out.print("Set2: ");
+        String[] secondSetElements = scanner.nextLine().split(" ");
+        Set<String> secondSet = new HashSet<>(Arrays.asList(secondSetElements));
+
+        Set<String> filteredSet = new HashSet<>();
+        for (String element: firstSet) {
+            if (secondSet.contains(element)) {
+                filteredSet.add(element);
+            }
+        }
+        System.out.println(filteredSet);
     }
 }
