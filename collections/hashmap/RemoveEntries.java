@@ -1,6 +1,8 @@
 package collections.hashmap;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class RemoveEntries {
     public static void main(String[] args) {
@@ -13,6 +15,17 @@ public class RemoveEntries {
 
         String valueToRemove = "Apple";
 
-        
+        removeEntries(hashMap, valueToRemove);
+        System.out.println(hashMap);
+    }
+
+    public static <I, S> void removeEntries(HashMap<I, S> map, S value) {
+        Iterator<Map.Entry<I, S>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getValue().equals(value)) {
+                iterator.remove();
+            }
+        }
+
     }
 }
