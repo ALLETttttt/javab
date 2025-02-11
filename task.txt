@@ -1,0 +1,4 @@
+John - 85
+Anna - 78
+Michael - 90
+Sarah - 72

@@ -1,38 +1,36 @@
 package basic_file_operations;
 
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class PersonalDiary {
+public class ExpenseTracker {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        boolean exit = false;
+        boolean flag = false;
 
-        while (!exit) {
-            System.out.println("=== Personal Diary Menu ===");
-            System.out.println("1. Write/Update an entry");
-            System.out.println("2. Read an entry");
+        while (!flag) {
+            System.out.println("=== Expense Tracker Menu ===");
+            System.out.println("1. Write an expense");
+            System.out.println("2. Read an expense");
             System.out.println("3. Exit");
             System.out.print("Enter your choice (1-3): ");
             String choice = scanner.nextLine();
 
             switch (choice) {
-                case "1" -> writeEntry(scanner);
-                case "2" -> readEntry(scanner);
-                case "3" -> {
-                    exit = true;
-                    System.out.println("Goodbye!");
-                }
+                case "1" -> writeExpense(scanner);
+                case "2" -> readExpense(scanner);
+                case "3" -> flag = true;
                 default -> System.out.println("Invalid choice. Please select 1, 2, or 3.");
             }
         }
-        scanner.close();
+
     }
 
-    public static void writeEntry(Scanner scanner) {
+    public static void writeExpense(Scanner scanner) {
         System.out.print("Enter the date (yyyy-MM-dd): ");
         String dateStr = scanner.nextLine();
 
@@ -62,7 +60,7 @@ public class PersonalDiary {
             }
         }
 
-        System.out.println("Enter your journal entry (type 'END' on a new line to finish):");
+        System.out.println("Enter your journal expense (type 'END' on a new line to finish):");
         StringBuilder entryBuilder = new StringBuilder();
         while (true) {
             String entry = scanner.nextLine();
@@ -75,13 +73,13 @@ public class PersonalDiary {
         String entries = entryBuilder.toString();
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, mode.equals("append")))) {
             bufferedWriter.write(entries);
-            System.out.println("Entry saved successfully.");
+            System.out.println("Expenses saved successfully.");
         } catch (IOException e) {
             System.out.println("Error writing the file: " + e.getMessage());
         }
     }
 
-    public static void readEntry(Scanner scanner) {
+    public static void readExpense(Scanner scanner) {
         System.out.println("Enter the date (yyyy-MM-dd): ");
         String dateStr = scanner.next();
 
@@ -104,9 +102,14 @@ public class PersonalDiary {
         System.out.println("Entry for " + dateStr + ":");
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
+            int sum = 0;
             while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains("$")) {
+                    sum += Integer.parseInt(line.substring(1));
+                }
                 System.out.println(line);
             }
+            System.out.println("Total: " + sum);
         } catch (IOException e) {
             System.out.println("Error reading the file: " + e.getMessage());
         }
