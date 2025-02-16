@@ -19,5 +19,14 @@ public class Main {
 
         person.updatePersonInfo(33, "newjohndoe@example.com");
         person.displayPersonInfo();
+
+        Rectangle rectangle1 = new Rectangle();
+        rectangle1.displayInfo();
+
+        Rectangle rectangle2 = new Rectangle(5);
+        rectangle2.displayInfo();
+
+        Rectangle rectangle3 = new Rectangle(4, 6);
+        rectangle3.displayInfo();
     }
 }
