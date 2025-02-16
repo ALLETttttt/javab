@@ -10,5 +10,14 @@ public class Main {
 
         Book book2 = new Book("Moby-Dick", "Herman Melville");
         book2.displayBookInfo();
+
+        Person person = new Person("John Doe", 30, "johndoe@example.com");
+        person.displayPersonInfo();
+
+        person.updatePersonInfo(100);
+        person.displayPersonInfo();
+
+        person.updatePersonInfo(33, "newjohndoe@example.com");
+        person.displayPersonInfo();
     }
 }
