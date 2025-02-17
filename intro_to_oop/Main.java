@@ -1,5 +1,7 @@
 package intro_to_oop;
 
+import intro_to_oop.banking_system.Bank;
+import intro_to_oop.banking_system.BankAccount;
 import intro_to_oop.employee_management.Employee;
 import intro_to_oop.employee_management.EmployeeManager;
 import intro_to_oop.inventory_system.Inventory;
@@ -100,5 +102,22 @@ public class Main {
                 Employee::displayEmployeePersonalInfo,
                 () -> System.out.println("Employee not found.")
         );
+
+        Bank bank = new Bank();
+
+        BankAccount acc1 = new BankAccount("12345", "John Doe", 200);
+        BankAccount acc2 = new BankAccount("67890", "Jane Smith", 500);
+        BankAccount acc3 = new BankAccount("11223", "Alice Brown", 1000);
+
+        bank.addBankAccount(acc1);
+        bank.addBankAccount(acc2);
+        bank.addBankAccount(acc3);
+
+        bank.getBankAccounts();
+
+        bank.getBankAccountByAccountNumber("12345").displayInfo();
+        bank.getBankAccountByAccountNumber("12345").deposit(400);
+
+        acc1.deposit(1000);
     }
 }
