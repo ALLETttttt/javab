@@ -1,4 +1,4 @@
-package intro_to_oop;
+package intro_to_oop.inventory_system;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,15 @@
 package intro_to_oop;
 
+import intro_to_oop.employee_management.Employee;
+import intro_to_oop.employee_management.EmployeeManager;
+import intro_to_oop.inventory_system.Inventory;
+import intro_to_oop.inventory_system.Product;
+import intro_to_oop.library_management.Book;
+import intro_to_oop.library_management.Library;
+import intro_to_oop.models.Calculator;
+import intro_to_oop.models.Person;
+import intro_to_oop.models.Rectangle;
+
 public class Main {
     public static void main(String[] args) {
         Book myBook = new Book("1984", "George Orwell");
@@ -75,5 +85,20 @@ public class Main {
         );
 
 
+        Employee emp1 = new Employee(101, "Alice Johnson", "HR");
+        Employee emp2 = new Employee(102, "Bob Smith", "IT");
+        Employee emp3 = new Employee(103, "Charlie Brown", "Finance");
+
+        EmployeeManager employeeManager = new EmployeeManager();
+        employeeManager.addEmployee(emp1);
+        employeeManager.addEmployee(emp2);
+        employeeManager.addEmployee(emp3);
+
+        employeeManager.getEmployees();
+
+        employeeManager.getEmployeeById(101).ifPresentOrElse(
+                Employee::displayEmployeePersonalInfo,
+                () -> System.out.println("Employee not found.")
+        );
     }
 }

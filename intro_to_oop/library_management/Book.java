@@ -1,4 +1,4 @@
-package intro_to_oop;
+package intro_to_oop.library_management;
 
 public class Book {
     String title;

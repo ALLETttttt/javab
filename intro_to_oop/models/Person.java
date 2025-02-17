@@ -1,4 +1,4 @@
-package intro_to_oop;
+package intro_to_oop.models;
 
 public class Person {
     String name;
