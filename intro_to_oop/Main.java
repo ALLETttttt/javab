@@ -11,6 +11,8 @@ import intro_to_oop.library_management.Library;
 import intro_to_oop.models.Calculator;
 import intro_to_oop.models.Person;
 import intro_to_oop.models.Rectangle;
+import intro_to_oop.registration_system.Course;
+import intro_to_oop.registration_system.Student;
 
 public class Main {
     public static void main(String[] args) {
@@ -119,5 +121,30 @@ public class Main {
         bank.getBankAccountByAccountNumber("12345").deposit(400);
 
         acc1.deposit(1000);
+
+
+        // Creating Courses
+        Course javaCourse = new Course("101", "Introduction to Java", 2);
+        Course dsaCourse = new Course("102", "Data Structures", 2);
+        Course dbmsCourse = new Course("103", "Database Management Systems", 1);
+
+        // Creating Students
+        Student alice = new Student("S001", "Alice Smith");
+        Student bob = new Student("S002", "Bob Johnson");
+        Student charlie = new Student("S003", "Charlie Brown");
+
+        alice.enrollToCourse(javaCourse);
+        bob.enrollToCourse(javaCourse);
+        charlie.enrollToCourse(javaCourse);
+
+        alice.enrollToCourse(dsaCourse);
+        alice.enrollToCourse(dbmsCourse);
+
+        bob.enrollToCourse(dsaCourse);
+        charlie.enrollToCourse(dbmsCourse);
+
+        alice.getEnrolledCourses();
+        bob.getEnrolledCourses();
+        charlie.getEnrolledCourses();
     }
 }
