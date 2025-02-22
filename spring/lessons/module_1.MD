@@ -20,7 +20,7 @@ Spring’s modular architecture includes:
 Benefits include:
 - Reduced boilerplate code
 - Improved application scalability and maintainability
-- Robust abstraction layers allowing for easy integration with other frameworks.
+- Robust abstractions layers allowing for easy integration with other frameworks.
 
 #### Practical Exercise
 

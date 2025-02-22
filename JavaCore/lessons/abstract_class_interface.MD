@@ -38,7 +38,7 @@ public class Main {
 
 ### Interfaces in Java
 #### Concept
-An interface in Java is a completely abstract class that is used to group related methods with empty bodies. Interfaces are used to achieve abstraction and multiple inheritance in Java.
+An interface in Java is a completely abstract class that is used to group related methods with empty bodies. Interfaces are used to achieve abstractions and multiple inheritance in Java.
 
 #### Key Points
 - Interfaces can contain only abstract methods (Java 8 onwards, they can also have default and static methods).
@@ -144,7 +144,7 @@ Part of the SOLID principles of Object-Oriented Design, the Interface Segregatio
 - Use `abstract` classes when you want to share code among several closely related classes.
 - Use `interfaces` to define a role that other unrelated classes can implement.
 - Abstract classes are a good choice when future versions may add new methods.
-- Use interfaces to provide a layer of abstraction to your code, making it easier to refactor, change, and test your application.
+- Use interfaces to provide a layer of abstractions to your code, making it easier to refactor, change, and test your application.
 
 
 ### Recommended Resources

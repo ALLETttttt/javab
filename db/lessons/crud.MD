@@ -141,7 +141,7 @@ session.close();
 ```
 
 ### Conclusion
-Whether you choose the low-level control of JDBC or the abstraction provided by an ORM like Hibernate, implementing 
+Whether you choose the low-level control of JDBC or the abstractions provided by an ORM like Hibernate, implementing 
 CRUD operations is a crucial skill for Java developers working with databases. JDBC offers more control and is 
 lightweight, while Hibernate reduces boilerplate and provides a rich set of features for object-relational mapping, 
 caching, and more. The choice between them depends on your application's specific requirements and your preference 

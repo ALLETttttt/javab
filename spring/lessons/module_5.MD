@@ -28,7 +28,7 @@ By the end of this module, you should be able to:
     - Reduces boilerplate code
     - Supports NoSQL and relational databases
 - **Key Features of Spring Data**
-    - Repository abstraction
+    - Repository abstractions
     - Query derivation from method names
     - Implementation domain base classes
 
