@@ -1,7 +1,7 @@
 package polymorphism.task3;
 
 public class Bank {
-    void getInterestRate() {
-
+    double getInterestRate() {
+        return 0.7;
     }
 }
