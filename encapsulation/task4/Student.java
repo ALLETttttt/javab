@@ -1,5 +1,6 @@
 package encapsulation.task4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
@@ -7,27 +8,30 @@ public class Student {
     private String age;
     private List<Integer> grades;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Student(String name, String age) {
         this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
         this.age = age;
+        this.grades = new ArrayList<>();
     }
 
-    public List<Integer> getGrades() {
-        return grades;
+    public void addGrade(int grade) {
+        if (grade >= 0 && grade <= 100) {
+            grades.add(grade);
+        } else {
+            System.out.println("Invalid grade. Must be between 0 and 100.");
+        }
     }
 
-    public void setGrades(List<Integer> grades) {
-        this.grades = grades;
+    public void displayStudentInfo() {
+        System.out.println("Student: " + name + ", Age: " + age);
+        System.out.println("Grades: " + grades);
+        System.out.printf("Average Grade: %.2f\n", calculateAverage());
+    }
+
+    public double calculateAverage() {
+        return grades.stream()
+                .mapToDouble(n -> n)
+                .average()
+                .orElse(0);
     }
 }
