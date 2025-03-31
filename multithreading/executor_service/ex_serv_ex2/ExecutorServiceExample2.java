@@ -11,15 +11,15 @@ public class ExecutorServiceExample2 {
 
         Future future = executorService.submit(newRunnable("Task 1.1.1"));
 
-        System.out.println(future.isDone());
+        System.out.println(future.isDone()); // false
 
-        try {
-            future.get();
-        } catch (ExecutionException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            future.get();
+//        } catch (ExecutionException | InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        System.out.println(future.isDone());
+        System.out.println(future.isDone()); // true
 
         executorService.shutdown();
     }

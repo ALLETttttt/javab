@@ -11,6 +11,13 @@ public class ExecutorServiceExample1 {
 
         executorService.execute(newRunnable("Task 1"));
         executorService.execute(newRunnable("Task 2"));
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+
         executorService.execute(newRunnable("Task 3"));
 
         executorService.shutdown();

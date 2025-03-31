@@ -8,7 +8,7 @@ public class ExecutorServiceExample3 {
 
         Future future = executorService.submit(newCallable("Task 2.1.1"));
 
-        System.out.println(future.isDone());
+        System.out.println(future.isDone()); // false
 
         try {
             String res = (String) future.get();
@@ -17,12 +17,12 @@ public class ExecutorServiceExample3 {
             throw new RuntimeException(e);
         }
 
-        System.out.println(future.isDone());
+        System.out.println(future.isDone()); // true
 
         executorService.shutdown();
     }
 
-    public static Callable newCallable(String msg) {
+    public static Callable<String> newCallable(String msg) {
         return new Callable() {
             @Override
             public Object call() throws Exception {
