@@ -1,4 +1,4 @@
-package multithreading.lock;
+package multithreading.reentrant_lock;
 
 public class CounterLockMain {
     public static void main(String[] args) {
